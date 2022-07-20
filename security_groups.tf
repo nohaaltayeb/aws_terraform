@@ -1,7 +1,7 @@
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "Allow ssh inbound traffic"
-  vpc_id      = aws_vpc.myvpc.id
+  vpc_id      = module.network.cidr
 
   ingress {
     description      = "SSH from VPC"
@@ -27,7 +27,7 @@ resource "aws_security_group" "allow_ssh" {
 resource "aws_security_group" "ssh_port_3000" {
   name        = "allow_ssh3000"
   description = "Allow SSH "
-  vpc_id      = aws_vpc.myvpc.id
+  vpc_id      = module.network.cidr
 
   ingress {
     description      = "ssh"

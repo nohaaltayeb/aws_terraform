@@ -1,5 +1,5 @@
-resource "aws_key_pair" "TF_KEY" {
-  key_name   = "TF_KEY"
+resource "aws_key_pair" "TF_KEY1" {
+  key_name   = "TF_KEY1"
   public_key = tls_private_key.rsa.public_key_openssh
 
 }
@@ -12,5 +12,5 @@ resource "tls_private_key" "rsa" {
 
 resource "local_file" "key" {
     content  = tls_private_key.rsa.private_key_pem
-    filename = "TF_KEY"
+    filename = "TF_KEY1"
 }
